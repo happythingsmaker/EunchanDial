@@ -46,17 +46,26 @@
         return;
       }
 
-      let view = new Uint8Array(10);
+      let view = new Uint8Array(15);
       view[0] = 0xff;
       view[1] = 0xff;
       view[2] = 0x10;
       view[3] = 0x10;
+
       view[4] = 0x01;
+      
       view[5] = 0x00;
       view[6] = 0x00;
       view[7] = 0x00;
-      view[8] = 0x0f;
-      view[9] = 0xff;
+      view[8] = 0x00;
+      view[9] = 0x00;
+      view[10] = 0x00;
+      view[11] = 0x00;
+      view[12] = 0x00;
+      
+      view[13] = 0x00;
+      
+      view[14] = 0xff;
       port.send(view);
 
     };
@@ -163,36 +172,51 @@
       //CTRL, ALT, ShIFT
       setOneChannelKey(
         0,
-        document.getElementById("CTRL_L").checked,
-        document.getElementById("ALT_L").checked,
-        document.getElementById("SHIFT_L").checked,
+        document.getElementById("LEFT_CTRL_L").checked,
+        document.getElementById("LEFT_SHIFT_L").checked,
+        document.getElementById("LEFT_ALT_L").checked,
+        false, //gui is not supporting at this moment
+        document.getElementById("RIGHT_CTRL_L").checked,
+        document.getElementById("RIGHT_SHIFT_L").checked,
+        document.getElementById("RIGHT_ALT_L").checked,
+        false, //gui is not supporting at this moment
         document.getElementById("keys_L").value
         )
 
       //RIGHT 1
       setOneChannelKey(
         1,
-        document.getElementById("CTRL_R").checked,
-        document.getElementById("ALT_R").checked,
-        document.getElementById("SHIFT_R").checked,
+        document.getElementById("LEFT_CTRL_R").checked,
+        document.getElementById("LEFT_SHIFT_R").checked,
+        document.getElementById("LEFT_ALT_R").checked,
+        false, //gui is not supporting at this moment
+        document.getElementById("RIGHT_CTRL_R").checked,
+        document.getElementById("RIGHT_SHIFT_R").checked,
+        document.getElementById("RIGHT_ALT_R").checked,
+        false, //gui is not supporting at this moment
         document.getElementById("keys_R").value
         )
 
       //CLICK 2 
       setOneChannelKey(
         2,
-        document.getElementById("CTRL_C").checked,
-        document.getElementById("ALT_C").checked,
-        document.getElementById("SHIFT_C").checked,
+        document.getElementById("LEFT_CTRL_C").checked,
+        document.getElementById("LEFT_SHIFT_C").checked,
+        document.getElementById("LEFT_ALT_C").checked,
+        false, //gui is not supporting at this moment
+        document.getElementById("RIGHT_CTRL_C").checked,
+        document.getElementById("RIGHT_SHIFT_C").checked,
+        document.getElementById("RIGHT_ALT_C").checked,
+        false, //gui is not supporting at this moment
         document.getElementById("keys_C").value
         )
     }
 
-    function setOneChannelKey(direction, ctrl, alt, shift, key){
+    function setOneChannelKey(direction, left_ctrl, left_shift, left_alt, left_gui, right_ctrl, right_shift, right_alt, right_gui , key){
       if (!port) {
         return;
       }
-      let view = new Uint8Array(10);
+      let view = new Uint8Array(15);
       //header2
       view[0] = 0xff;
       view[1] = 0xff;
@@ -207,32 +231,70 @@
         view[4] = direction;
       }
 
-      // CTRL
-      if (ctrl){
+      // LEFT_CTRL
+      if (left_ctrl){
         view[5] = 1;
       } else {
         view[5] = 0;
       }
-
-      if (alt){
+      
+      // LEFT_SHIFT
+      if (left_shift){
         view[6] = 1;
       }else {
         view[6] = 0;
       }
-      
-      if (shift){
+
+      // LEFT_ALT
+      if (left_alt){
         view[7] = 1;
       }else {
         view[7] = 0;
       }
 
+      // LEFT_GUI
+      if (left_gui){
+        view[8] = 1;
+      }else {
+        view[8] = 0;
+      }
+
+
+      // RIGHT_CTRL
+      if (right_ctrl){
+        view[9] = 1;
+      } else {
+        view[9] = 0;
+      }
+      
+      // RIGHT_SHIFT
+      if (right_shift){
+        view[10] = 1;
+      }else {
+        view[10] = 0;
+      }
+
+      // RIGHT_ALT
+      if (right_alt){
+        view[11] = 1;
+      }else {
+        view[11] = 0;
+      }
+
+      // RIGHT_GUI
+      if (right_gui){
+        view[12] = 1;
+      }else {
+        view[12] = 0;
+      }
+       
       // KEY
-      view[8] = key;
+      view[13] = key;
       
       //FINISHING
-      view[9] = 0xff;
-      // console.log(view)
+      view[14] = 0xff;
       port.send(view);
+      // console.log(view);
     }
 
 
@@ -250,6 +312,11 @@
           false,
           false,
           false,
+          false,
+          false,
+          false,
+          false,
+          false,
           "0xD8" //left arrow
         )
         setOneChannelKey(
@@ -257,10 +324,20 @@
           false,
           false,
           false,
+          false,
+          false,
+          false,
+          false,
+          false,
           "0xD7" //right arrow
         )
         setOneChannelKey(
           2,
+          false,
+          false,
+          false,
+          false,
+          false,
           false,
           false,
           false,
@@ -281,6 +358,11 @@
           true, //ctrl
           false,
           false,
+          false,
+          false,
+          false,
+          false,
+          false,
           "0xD8" //left arrow
         )
         setOneChannelKey(
@@ -288,10 +370,20 @@
           true, //ctrl
           false,
           false,
+          false,
+          false,
+          false,
+          false,
+          false,
           "0xD7" //right arrow
         )
         setOneChannelKey(
           2,
+          false,
+          false,
+          false,
+          false,
+          false,
           false,
           false,
           false,
@@ -312,6 +404,11 @@
           false,
           false,
           false,
+          false,
+          false,
+          false,
+          false,
+          false,
           "0x5B" // [
         )
         setOneChannelKey(
@@ -319,10 +416,20 @@
           false,
           false,
           false,
+          false,
+          false,
+          false,
+          false,
+          false,
           "0x5D" // ]
         )
         setOneChannelKey(
           2,
+          false,
+          false,
+          false,
+          false,
+          false,
           false,
           false,
           false,
