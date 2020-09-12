@@ -346,6 +346,7 @@
         )
         setOneChannelKey(
           2,
+          true,
           false,
           false,
           false,
@@ -353,8 +354,7 @@
           false,
           false,
           false,
-          false,
-          "0x20" //space
+          "0x6b" //k
         )
     });
 
