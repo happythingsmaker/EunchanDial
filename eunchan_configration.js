@@ -16,6 +16,8 @@
     
     let port;
 
+    let lastClickedButton;
+
     function connect() {
       port.connect().then(() => {
         statusDisplay.textContent = 'Connected!';
@@ -26,18 +28,27 @@
           let textDecoder = new TextDecoder();
           
           if(textDecoder.decode(data).indexOf("Save Done!") != -1) {
-          resultSpan.textContent = "Successfully Saved!"
+          // resultSpan.textContent = "Successfully Saved!"
+          lastClickedButton.className = "btn btn-success"
+          lastClickedButton.innerText = "SUCCESS!"
+
           setTimeout(function(){
-            resultSpan.textContent = ""
+            // resultSpan.textContent = ""
+            lastClickedButton.className = "btn btn-warning"
+            lastClickedButton.innerText = "Click to apply "
           },3000)
           }
           console.log(textDecoder.decode(data))
         }
+
         port.onReceiveError = error => {
-          console.error(error);
+          console.log(error);
+          
         };
       }, error => {
         statusDisplay.textContent = error;
+        connectButton.className = "btn btn-danger"
+        connectButton.innerText = "ERROR"
       });
     }
 
@@ -161,6 +172,7 @@
     setCustomizeButton.addEventListener('click', function(event){
       event.preventDefault(); 
       sendAllKeyboardSetting();
+      lastClickedButton = setCustomizeButton;
     });
 
     function sendAllKeyboardSetting(){
@@ -304,6 +316,7 @@
         if (!port) {
           return;
         }
+        lastClickedButton = setPresetPre;
   
         //LEFT 0 
         //CTRL, ALT, ShIFT
@@ -350,6 +363,7 @@
         if (!port) {
           return;
         }
+        lastClickedButton = setPresetAE;
   
         //LEFT 0 
         //CTRL, ALT, ShIFT
@@ -396,6 +410,7 @@
         if (!port) {
           return;
         }
+        lastClickedButton = setPresetIlu;
   
         //LEFT 0 
         //CTRL, ALT, ShIFT
