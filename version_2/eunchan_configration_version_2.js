@@ -5,6 +5,7 @@
     let connectButton = document.querySelector("#connect");
     let statusDisplay = document.querySelector('#status');
 
+    let setPresetVolume = document.querySelector('#preset_volume');
     let setPresetPre = document.querySelector('#preset_premiere');
     let setPresetAE = document.querySelector('#preset_AE');
     let setPresetIlu = document.querySelector('#preset_illustrator');
@@ -35,7 +36,7 @@
           setTimeout(function(){
             // resultSpan.textContent = ""
             lastClickedButton.className = "btn btn-warning"
-            lastClickedButton.innerText = "Click to apply "
+            lastClickedButton.innerText = "apply "
           },3000)
           }
           console.log(textDecoder.decode(data))
@@ -271,7 +272,6 @@
       // console.log(view);
     }
 
-
     
     setPresetPre.addEventListener('click', function(event){
       event.preventDefault(); 
@@ -374,7 +374,7 @@
         if (!port) {
           return;
         }
-        lastClickedButton = setPresetIlu;
+        lastClickedButton = setPresetVolume;
   
         //LEFT 0 
         //CTRL, ALT, ShIFT
@@ -383,21 +383,21 @@
           false,
           false,
           false,
-          "0xF0E9" // up
+          "0xF0EA" // down
         )
         setOneChannelKey(
           1,
           false,
           false,
           false,
-          "0xF0EA" // down
+          "0xF0E9" // up
         )
         setOneChannelKey(
           2,
           false,
           false,
           false,
-          "0xF0CD" //play and pause
+          "0xF0E2" //mute
         )
     });
 

@@ -12,15 +12,18 @@
   <head>
     <!-- Origin Trial Token, feature = WebUSB (For Chrome M57+), origin = https://webusb.github.io, expires = 2017-06-19 -->
     <meta http-equiv="origin-trial" data-feature="WebUSB (For Chrome M57+)" data-expires="2017-06-19" content="Ag83MurQOa5N4SKRCqqtSlbycfe08s5LgUiqEI7J3jTk2NEIpRp7SLPz2i+EBDuXyf+AeRMdD6BI++kTSJmGzQEAAABReyJvcmlnaW4iOiJodHRwczovL3dlYnVzYi5naXRodWIuaW86NDQzIiwiZmVhdHVyZSI6IldlYlVTQjIiLCJleHBpcnkiOjE0OTc4OTM2OTV9">
-    <title>Eunchan Dial Configuration</title>
+    <title>Eunchan Dial Configuration - Version 2</title>
     <script src="serial.js"></script>
-    <script src="eunchan_configration.js"></script>
+    <script src="eunchan_configration_version_2.js"></script>
   </head>
   <body>
     <div class="container">
 
-    <h1>Eunchan Dial Configuration Tool (USE <a href="https://www.google.com/chrome/" target="_blank" >Chrome</a> Browser)</h1>
-    <p>purchase link: <a href="https://www.etsy.com/listing/869723289/eunchan-custom-dial-premiere-pro" target="_blank">https://www.etsy.com/listing/869723289/eunchan-custom-dial-premiere-pro</a><br>
+    <h1>Eunchan Dial version 2 Configuration Tool<br>(USE <a href="https://www.google.com/chrome/" target="_blank" >Chrome</a> Browser)</h1>
+    <p>version 2 update : including volume, media control
+      <br>special charactors are needed to use with shift combination - US keyboard layout
+    </p>
+    <p><a href="https://www.etsy.com/listing/869723289/eunchan-custom-dial-premiere-pro" target="_blank">Purchase link</a><br>
     <a href="https://eunchan.me/Eunchan-Custom-Dial-c197ad66c3134cb99df464667e2c442d" target="_blank">Documentation</a><br>
     <a href="https://www.youtube.com/embed/FFwrZYfPiYM" target="_blank">YouTube Instruction</a><br>
   </p>
@@ -60,12 +63,20 @@
       </thead>
       <tbody>
         <tr>
+          <th>Volume control</th>
+          <td>support from version2</td>
+          <td>volume down</td>
+          <td>volume up</td>
+          <td>mute</td>
+          <td><button id="preset_volume" class="btn btn-warning">apply</button></td>
+        </tr>
+        <tr>
           <th>Premiere Pro</th>
           <td>navigate timeline</td>
           <td>LEFT Arrow</td>
           <td>Right Arrow</td>
           <td>CTRL+K</td>
-          <td><button id="preset_premiere" class="btn btn-warning">Click to apply</button></td>
+          <td><button id="preset_premiere" class="btn btn-warning">apply</button></td>
         </tr>
         <tr>
           <th>After Effects</th>
@@ -73,7 +84,7 @@
           <td>CTRL + LEFT Arrow</td>
           <td>CTRL + Right Arrow</td>
           <td>SPACE</td>
-          <td><button id="preset_AE" class="btn btn-warning"> Click to apply</button></td>
+          <td><button id="preset_AE" class="btn btn-warning">apply</button></td>
         </tr>
         <tr>
           <th>Illustrator, Photoshop</th>
@@ -81,7 +92,7 @@
           <td>[</td>
           <td>]</td>
           <td></td>
-          <td><button id="preset_illustrator" class="btn btn-warning">Click to apply</button></td>
+          <td><button id="preset_illustrator" class="btn btn-warning">apply</button></td>
         </tr>
       </tbody>
     </table>
@@ -529,7 +540,7 @@
             </td>
 
 
-            <td><button id="set_customize" class="btn btn-warning">Click to apply</button><br>
+            <td><button id="set_customize" class="btn btn-warning">apply</button><br>
             <span id="set_result"></span>
             </td>
           </tr>
