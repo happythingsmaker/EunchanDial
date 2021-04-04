@@ -257,7 +257,22 @@
                 <option value="0xF06F">CONSUMER_BRIGHTNESS_UP</option>
                 <option value="0xF070">CONSUMER_BRIGHTNESS_DOWN</option>
                 <option value="0xF19e">CONSUMER_SCREENSAVER</option>
-               
+
+                <!-- MOUSE -->
+                <!-- ADD 0XFF00 AND DEDUCT IT LATER IN JS -->
+                <option value="0xFF01">MOUSE L CLICK</option>
+                <option value="0xFF02">MOUSE R CLICK</option>
+                <option value="0xFF03">MOUSE L DOUBLE_CLICK</option>
+                <option value="0xFF04">MOUSE R DOUBLE CLICK</option>
+                <option value="0xFF05">MOUSE MOVE LEFT</option>
+                <option value="0xFF06">MOUSE MOVE RIGHT</option>
+                <option value="0xFF07">MOUSE MOVE UP</option>
+                <option value="0xFF08">MOUSE MOVE DOWN</option>
+                <option value="0xFF09">MOUSE SCROLL UP</option>
+                <option value="0xFF0A">MOUSE SCROLL DOWN</option>
+                <option value="0xFF0B">MOUSE MIDDLE CLICK</option>
+                <option value="0xFF0C">MOUSE MIDDLE double CLICK</option>
+                
                 
               </select>
             </td>
@@ -391,6 +406,21 @@
                 <option value="0xF06F">CONSUMER_BRIGHTNESS_UP</option>
                 <option value="0xF070">CONSUMER_BRIGHTNESS_DOWN</option>
                 <option value="0xF19e">CONSUMER_SCREENSAVER</option>
+
+                <!-- MOUSE -->
+                <!-- ADD 0XFF00 AND DEDUCT IT LATER IN JS -->
+                <option value="0xFF01">MOUSE L CLICK</option>
+                <option value="0xFF02">MOUSE R CLICK</option>
+                <option value="0xFF03">MOUSE L DOUBLE_CLICK</option>
+                <option value="0xFF04">MOUSE R DOUBLE CLICK</option>
+                <option value="0xFF05">MOUSE MOVE LEFT</option>
+                <option value="0xFF06">MOUSE MOVE RIGHT</option>
+                <option value="0xFF07">MOUSE MOVE UP</option>
+                <option value="0xFF08">MOUSE MOVE DOWN</option>
+                <option value="0xFF09">MOUSE SCROLL UP</option>
+                <option value="0xFF0A">MOUSE SCROLL DOWN</option>
+                <option value="0xFF0B">MOUSE MIDDLE CLICK</option>
+                <option value="0xFF0C">MOUSE MIDDLE double CLICK</option>
               </select>
             </td>
             
@@ -522,6 +552,29 @@
                 <option value="0xF06F">CONSUMER_BRIGHTNESS_UP</option>
                 <option value="0xF070">CONSUMER_BRIGHTNESS_DOWN</option>
                 <option value="0xF19e">CONSUMER_SCREENSAVER</option>
+
+                <!-- MOUSE -->
+                <!-- ADD 0XFF00 AND DEDUCT IT LATER IN JS -->
+                <option value="0xFF01">MOUSE L CLICK</option>
+                <option value="0xFF02">MOUSE R CLICK</option>
+                <option value="0xFF03">MOUSE L DOUBLE_CLICK</option>
+                <option value="0xFF04">MOUSE R DOUBLE CLICK</option>
+                <option value="0xFF05">MOUSE MOVE LEFT</option>
+                <option value="0xFF06">MOUSE MOVE RIGHT</option>
+                <option value="0xFF07">MOUSE MOVE UP</option>
+                <option value="0xFF08">MOUSE MOVE DOWN</option>
+                <option value="0xFF09">MOUSE SCROLL UP</option>
+                <option value="0xFF0A">MOUSE SCROLL DOWN</option>
+                <option value="0xFF0B">MOUSE MIDDLE CLICK</option>
+                <option value="0xFF0C">MOUSE MIDDLE double CLICK</option>
+                
+                <option value="0xFF0D">MOUSE KEEP L CLICK</option>
+                <option value="0xFF0E">MOUSE KEEP R CLICK</option>
+                <option value="0xFF0F">MOUSE KEEP middle CLICK</option>
+
+                <option value="0xFF10">MOUSE KEEP L CLICK until next click</option>
+                <option value="0xFF11">MOUSE KEEP R CLICK until next click</option>
+                <option value="0xFF12">MOUSE KEEP middle CLICK until next click</option>
               </select>
             </td>
 
@@ -530,6 +583,12 @@
             <span id="set_result"></span>
             </td>
           </tr>
+          <td colspan="3">
+            mouse moving sensitivity 
+            <button id="reset_sensitivity" class="btn btn-warning">RESET mouse move sensitivity</button>
+            <button id="set_sensitivity_minus" class="btn btn-warning">mouse move sensitivity -</button>
+            <button id="set_sensitivity_plus" class="btn btn-warning">mouse move sensitivity +</button>
+          </td>
         </tbody>
       </table>
 
