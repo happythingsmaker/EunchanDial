@@ -12,6 +12,11 @@
 
     let setCustomizeButton = document.querySelector("#set_customize");
 
+    let set_sensitivity_minus = document.querySelector('#set_sensitivity_minus');
+    let set_sensitivity_plus = document.querySelector('#set_sensitivity_plus');
+    let reset_sensitivity = document.querySelector('#reset_sensitivity');
+    
+
     let resultSpan = document.querySelector("#set_result");
     
     
@@ -222,7 +227,7 @@
       view[3] = 0x10;
       
       // left right or click (this time, left)
-      if (direction > 2 || direction < 0){
+      if (direction > 3 || direction < 0){
         alert("direction index error:");
         return;
       } else {
@@ -257,10 +262,14 @@
       
       if (key < 0xf000){
         view[12] = 0; //normal key
-      } else {
+      } else if (key >= 0xf000 && key < 0xff00) {
         view[12] = 1; //consumer key
         key = key - 0xf000
       }
+      else { // mouse function
+        view[12] = 2; //mouse key
+        key = key - 0xff00
+      }  
       console.log(key);
       
       // KEY
@@ -402,5 +411,57 @@
     });
 
 
-  });
+    reset_sensitivity.addEventListener('click', function(event){
+      event.preventDefault(); 
+        if (!port) {
+          return;
+        }
+
+        setOneChannelKey(
+          3,              //mouse resolution sensitivity
+          false,
+          false,
+          false,
+          "0x00"
+        )
+    });
+
+    set_sensitivity_minus.addEventListener('click', function(event){
+      event.preventDefault(); 
+        if (!port) {
+          return;
+        }
+
+        setOneChannelKey(
+          3,              //mouse resolution sensitivity
+          false,
+          false,
+          false,
+          "0x01"
+        )
+    });
+
+    set_sensitivity_plus.addEventListener('click', function(event){
+      event.preventDefault(); 
+        if (!port) {
+          return;
+        }
+
+        //LEFT 0 
+        //CTRL, ALT, ShIFT
+        setOneChannelKey(
+          3,              //mouse resolution sensitivity
+          false,
+          false,
+          false,
+          "0x02"
+        )
+    });
+
+    
+
+
+});
+
+
 })();
